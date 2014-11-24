@@ -7,12 +7,16 @@ options = {}
 
 opt_parser = OptionParser.new do |opt|
   opt.banner = "Usage: add_gem GEM_NAME"
+
+  opt.on("-g", "--group [GROUP]", "Group for the gem being added.") do |g|
+    options[:group] = g
+  end
 end
 
 opt_parser.parse!
 
 if not (gem_name =ARGV[0]).nil?
-  AddGem.add(gem_name)
+  AddGem.add(gem_name, options)
 else
   puts opt_parser
 end

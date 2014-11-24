@@ -5,13 +5,14 @@ module AddGem
     extend self
     BASE_URL = "https://rubygems.org/api/v1/gems"
 
-    def add(gem_name)
+    def add(gem_name, options = {})
       url = "#{BASE_URL}/#{gem_name}.json"
       gem_info = get_gem(url)
 
       if gem_info
-        gem_entry = "gem \"#{gem_name}\", \"~> #{gem_info["version"]}\""
-        f= File.open('Gemfile', 'a+'){ |f| f.puts gem_entry }
+        group = !!options[:group] ? ", group: :#{options[:group]}" : ""
+        gem_entry = %Q[gem "#{gem_name}", "~> #{gem_info["version"]}"#{group}]
+        f = File.open('Gemfile', 'a+'){ |f| f.puts gem_entry }
         puts "Added #{gem_entry} to your Gemfile."
       else
         puts "Opps something went wrong fetching the gem information.\nTry curl #{url}"
