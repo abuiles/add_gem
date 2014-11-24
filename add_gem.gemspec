@@ -13,4 +13,6 @@ Gem::Specification.new do |gem|
   gem.name          = "add_gem"
   gem.require_paths = ["lib"]
   gem.version       = AddGem::VERSION
+
+  gem.add_development_dependency('rake', '~> 10.3.2')
 end
