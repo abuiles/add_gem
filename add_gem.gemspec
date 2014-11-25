@@ -1,8 +1,8 @@
 require File.expand_path('../lib/add_gem/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Adolfo Builes"]
-  gem.email         = ["builes.adolfo@gmail.com"]
+  gem.authors       = ["Adolfo Builes", "Nicolas Hock"]
+  gem.email         = ["builes.adolfo@gmail.com", "nhocki@gmail.com"]
   gem.description   = %q{"Command-line tool to append new gems to your Gemfile."}
   gem.summary       = %q{"Command-line tool to append new gems to your Gemfile."}
   gem.homepage      = "https://github.com/abuiles/add_gem"
